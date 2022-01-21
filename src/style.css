@@ -1,0 +1,52 @@
+body {
+  background-color: rgb(67, 190, 67);
+  margin: 0;
+  height: 100%;
+}
+
+hr {
+  border-color: black;
+  border: 1px solid black;
+}
+
+.down {
+  padding-top: 20px;
+}
+.center {
+  text-align: center;
+}
+
+.marginUp {
+  margin-top: -1.5rem;
+}
+
+.changeClockContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.marginHalf {
+  margin: 0.5rem;
+}
+
+.centerFlex {
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
+  width: 50%;
+}
+
+.huge {
+  font-size: 100px;
+  margin: 0rem;
+}
+
+.threeButton {
+  margin: 2rem;
+}
