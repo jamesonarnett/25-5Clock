@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 const Header = () => {
@@ -17,24 +17,36 @@ const ChangeClock = (props) => {
     <div className="changeClockContainer">
       <div className="marginHalf">
         <h2>Session Length</h2>
-        <button className="marginHalf">UP</button>
-        <button className="marginHalf">DOWN</button>
+        <button onClick={props.increaseTime} className="marginHalf">
+          UP
+        </button>
+        <button onClick={props.decreaseTime} className="marginHalf">
+          DOWN
+        </button>
       </div>
       <div className="marginHalf">
         <h2>Break Length</h2>
-        <button className="marginHalf">UP</button>
-        <button className="marginHalf">DOWN</button>
+        <button onClick={props.breakIncrease} className="marginHalf">
+          UP
+        </button>
+        <button onClick={props.breakDecrease} className="marginHalf">
+          DOWN
+        </button>
       </div>
     </div>
   );
 };
 
-const TimerBox = () => {
+const TimerBox = (props) => {
   return (
     <div className="centerFlex">
       <div className="timer">
         <h2>Session:</h2>
-        <p className="huge">TIMER</p>
+        <p className="huge">{props.time}</p>
+        <div className="nextTo">
+          <h2>Break:</h2>
+          <p className="huge">{props.pauseBreak}</p>
+        </div>
       </div>
     </div>
   );
@@ -60,12 +72,36 @@ const GoodBye = () => {
 };
 
 const App = (props) => {
+  const [time, setTime] = useState(25);
+  const [pauseBreak, setBreak] = useState(5);
+
+  const increaseTime = (e) => {
+    setTime(time + 1);
+  };
+  const decreaseTime = (e) => {
+    setTime(time - 1);
+  };
+
+  const breakIncrease = () => {
+    setBreak(pauseBreak + 1);
+  };
+  const breakDecrease = () => {
+    setBreak(pauseBreak - 1);
+  };
+
   return (
     <div className="center down">
       <Header />
-      <ChangeClock />
-      <TimerBox />
+
+      <ChangeClock
+        increaseTime={increaseTime}
+        decreaseTime={decreaseTime}
+        breakIncrease={breakIncrease}
+        breakDecrease={breakDecrease}
+      />
+      <TimerBox time={time} pauseBreak={pauseBreak} />
       <ButtonBox />
+
       <GoodBye />
     </div>
   );

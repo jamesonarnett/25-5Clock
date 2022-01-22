@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(67, 190, 67);
+  background-color: rgb(129, 129, 129);
   margin: 0;
   height: 100%;
 }
@@ -22,7 +22,7 @@ hr {
 
 .changeClockContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .marginHalf {
@@ -32,6 +32,7 @@ hr {
 .centerFlex {
   display: flex;
   justify-content: center;
+  background-color: rgb(177, 156, 211);
 }
 
 .timer {
