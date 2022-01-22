@@ -16,21 +16,75 @@ const ChangeClock = (props) => {
   return (
     <div className="changeClockContainer">
       <div className="marginHalf">
-        <h2>Session Length</h2>
-        <button onClick={props.increaseTime} className="marginHalf">
-          UP
+        <h2 id="session-label">Session Length</h2>
+        <p id="session-length">{props.time}</p>
+        <button
+          id="session-increment"
+          onClick={props.increaseTime}
+          className="btn btn-dark marginHalf"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-arrow-up-square-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z" />
+          </svg>
         </button>
-        <button onClick={props.decreaseTime} className="marginHalf">
-          DOWN
+        <button
+          id="session-decrement"
+          onClick={props.decreaseTime}
+          className="btn btn-dark marginHalf"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-arrow-down-square-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
+          </svg>
         </button>
       </div>
       <div className="marginHalf">
-        <h2>Break Length</h2>
-        <button onClick={props.breakIncrease} className="marginHalf">
-          UP
+        <h2 id="break-label">Break Length</h2>
+        <p id="break-length">{props.pauseBreak}</p>
+        <button
+          id="break-increment"
+          onClick={props.breakIncrease}
+          className="btn btn-dark marginHalf"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-arrow-up-square-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z" />
+          </svg>
         </button>
-        <button onClick={props.breakDecrease} className="marginHalf">
-          DOWN
+        <button
+          id="break-decrement"
+          onClick={props.breakDecrease}
+          className="btn btn-dark marginHalf"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            class="bi bi-arrow-down-square-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
+          </svg>
         </button>
       </div>
     </div>
@@ -41,12 +95,8 @@ const TimerBox = (props) => {
   return (
     <div className="centerFlex">
       <div className="timer">
-        <h2>Session:</h2>
+        <h2 id="timer-label">Session:</h2>
         <p className="huge">{props.time}</p>
-        <div className="nextTo">
-          <h2>Break:</h2>
-          <p className="huge">{props.pauseBreak}</p>
-        </div>
       </div>
     </div>
   );
@@ -55,9 +105,31 @@ const TimerBox = (props) => {
 const ButtonBox = (props) => {
   return (
     <div>
-      <button className="threeButton">Start</button>
-      <button className="threeButton">Pause</button>
-      <button className="threeButton">Reset</button>
+      <button className="btn btn-dark threeButton">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="currentColor"
+          class="bi bi-play-fill"
+          viewBox="0 0 16 16"
+        >
+          <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+        </svg>
+      </button>
+      <button className="btn btn-dark threeButton">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="currentColor"
+          class="bi bi-pause-fill"
+          viewBox="0 0 16 16"
+        >
+          <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z" />
+        </svg>
+      </button>
+      <button className="btn btn-dark threeButton">Reset</button>
     </div>
   );
 };
@@ -72,7 +144,11 @@ const GoodBye = () => {
 };
 
 const App = (props) => {
-  const [time, setTime] = useState(25);
+  const min = 25;
+
+  const sec = 0;
+  const timer = min + `:` + sec;
+  const [time, setTime] = useState(timer);
   const [pauseBreak, setBreak] = useState(5);
 
   const increaseTime = (e) => {
@@ -98,6 +174,8 @@ const App = (props) => {
         decreaseTime={decreaseTime}
         breakIncrease={breakIncrease}
         breakDecrease={breakDecrease}
+        time={time}
+        pauseBreak={pauseBreak}
       />
       <TimerBox time={time} pauseBreak={pauseBreak} />
       <ButtonBox />
