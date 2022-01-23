@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
+import AddIcon from "@mui/icons-material/Add";
 
 const Header = () => {
   return (
@@ -23,16 +24,7 @@ const ChangeClock = (props) => {
           onClick={props.increaseTime}
           className="btn btn-dark marginHalf"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            fill="currentColor"
-            class="bi bi-arrow-up-square-fill"
-            viewBox="0 0 16 16"
-          >
-            <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z" />
-          </svg>
+          <AddIcon />
         </button>
         <button
           id="session-decrement"
@@ -144,11 +136,7 @@ const GoodBye = () => {
 };
 
 const App = (props) => {
-  const min = 25;
-
-  const sec = 0;
-  const timer = min + `:` + sec;
-  const [time, setTime] = useState(timer);
+  const [time, setTime] = useState(1);
   const [pauseBreak, setBreak] = useState(5);
 
   const increaseTime = (e) => {
